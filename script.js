@@ -1,6 +1,6 @@
 // ─── Config ───────────────────────────────────────────────────────────────────
-// Django API endpoint — update to your production URL when deployed
-const API_ENDPOINT = 'http://127.0.0.1:8000/api/quote/';
+// Relative URL works both locally and on Vercel
+const API_ENDPOINT = '/api/quote/';
 
 // ─── Page load ────────────────────────────────────────────────────────────────
 document.body.classList.add('loaded');
