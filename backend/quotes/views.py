@@ -13,6 +13,17 @@ REQUIRED_FIELDS = ['name', 'email', 'company', 'country', 'product']
 
 
 @csrf_exempt
+def health_check(request):
+    from django.db import connection
+    try:
+        connection.ensure_connection()
+        db_status = 'ok'
+    except Exception as e:
+        db_status = str(e)
+    return JsonResponse({'status': 'ok', 'db': db_status})
+
+
+@csrf_exempt
 @require_POST
 def submit_quote(request):
     data = request.POST
