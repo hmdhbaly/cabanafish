@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request a tailored seafood export quotation from CABANA FISH Mauritania.">
+  <title>Request a Quotation | CABANA FISH</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Request a Quotation | CABANA FISH">
+  <meta property="og:description" content="Share your purchasing requirements and our export team will prepare a clear commercial proposal for your market.">
+  <meta property="og:image"       content="assets/fresh-seafood-hero.png">
+  <link rel="icon" type="image/png" href="assets/cabanafish-logo-tight.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="quote-page">
+  <header class="site-header quote-header">
+    <a class="brand" href="index.html" aria-label="CABANA FISH home">
+      <span class="brand-logo-shell"><img class="brand-logo" src="assets/cabanafish-header-logo.png" alt="CABANA FISH logo"></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="index.html#products">Products</a>
+      <a href="index.html#quality">Quality</a>
+      <a href="index.html#exports">Global Reach</a>
+    </nav>
+    <a class="quote-back" href="index.html">Back to website <span>↗</span></a>
+  </header>
+
+  <main class="quote-main">
+    <section class="quote-intro">
+      <div class="quote-intro-bg"></div>
+      <div class="quote-intro-content">
+        <p class="eyebrow light"><span></span> Commercial enquiry</p>
+        <h1>Request a tailored<br><em>export quotation.</em></h1>
+        <p>Share your purchasing requirements and our export team will prepare a clear commercial proposal for your destination market.</p>
+        <div class="quote-benefits">
+          <div><b>01</b><span>Product and size availability</span></div>
+          <div><b>02</b><span>Packaging and logistics options</span></div>
+          <div><b>03</b><span>Commercial pricing proposal</span></div>
+        </div>
+        <div class="quote-direct"><span>Contact sales</span><a href="mailto:contact@cabanafish.com?subject=Sales%20Enquiry%20%E2%80%94%20CABANA%20FISH&body=Hello%20CABANA%20FISH%20Export%20Team%2C%0A%0AI%20am%20interested%20in%20your%20Atlantic%20seafood%20products%20and%20would%20like%20to%20discuss%20a%20potential%20partnership.%0A%0ACompany%3A%20%0ACountry%3A%20%0AProduct(s)%20of%20interest%3A%20%0AEstimated%20volume%20(MT)%3A%20%0APreferred%20delivery%20port%3A%20%0A%0AAdditional%20information%3A%0A%0A%0ABest%20regards%2C%0A%5BYour%20name%5D%0A%5BYour%20company%5D%0A%5BYour%20phone%5D">Write to contact@cabanafish.com</a></div>
+      </div>
+    </section>
+
+    <section class="quote-form-wrap">
+      <form class="quote-form quote-form-page" id="quoteForm">
+        <div class="form-top"><span>QUOTATION REQUEST</span><b>CABANA FISH · EXPORT TEAM</b></div>
+        <div class="form-section-title"><b>01</b><span>Company information</span></div>
+        <div class="form-row"><label>Full name<input required name="name" placeholder="Your full name"></label><label>Business email<input required type="email" name="email" placeholder="name@company.com"></label></div>
+        <div class="form-row"><label>Company<input required name="company" placeholder="Company name"></label><label>Country<input required name="country" placeholder="Destination country"></label></div>
+        <div class="form-section-title"><b>02</b><span>Seafood requirements</span></div>
+        <div class="form-row"><label>Product interest<select required name="product"><option value="">Choose a product</option><option>Poulpe / Octopus</option><option>Calamar</option><option>Choco</option><option>Thierny</option><option>Bengoua</option><option>Roubio</option><option>Mongo</option><option>Tako</option></select></label><label>Preferred format<select required name="format"><option value="">Choose a format</option><option>Whole fresh</option><option>Whole frozen</option><option>Cleaned</option><option>IQF</option><option>Block frozen</option><option>Custom processing</option></select></label></div>
+        <div class="form-row"><label>Estimated quantity<input name="quantity" placeholder="Example: 20 metric tons"></label><label>Delivery port<input name="port" placeholder="Preferred destination port"></label></div>
+        <label>Detailed requirements<textarea name="message" placeholder="Sizes, grades, packaging, frequency and any documentation requirements..."></textarea></label>
+        <label class="consent"><input required type="checkbox"> <span>I confirm this is a professional purchasing enquiry.</span></label>
+        <button class="btn btn-primary btn-wide" type="submit">Submit quotation request <b>↗</b></button>
+        <p class="form-note" id="formNote">Your enquiry will be reviewed by the CABANA FISH export team.</p>
+      </form>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

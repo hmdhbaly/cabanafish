@@ -1,0 +1,25 @@
+# Environment variables — NEVER commit this (contains passwords)
+backend/.env
+
+# Database — contains customer data
+backend/db.sqlite3
+
+# Python virtual environment — too large, recreated via requirements.txt
+backend/venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+backend/**/__pycache__/
+backend/**/*.pyc
+
+# Django migrations can be committed, but ignore local ones if needed
+# backend/**/migrations/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
