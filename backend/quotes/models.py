@@ -1,4 +1,17 @@
+import random
+import string
 from django.db import models
+
+
+def _generate_reference():
+    while True:
+        ref = (
+            random.choice(string.ascii_uppercase)
+            + random.choice(string.ascii_uppercase)
+            + ''.join(random.choices(string.digits, k=4))
+        )
+        if not Quotation.objects.filter(reference=ref).exists():
+            return ref
 
 
 class QuotationStatus(models.TextChoices):
@@ -23,6 +36,7 @@ class Quotation(models.Model):
     message  = models.TextField(blank=True)
 
     # ── Management ────────────────────────────────────────────────────────
+    reference  = models.CharField(max_length=6, unique=True, blank=True)
     status     = models.CharField(max_length=20, choices=QuotationStatus.choices, default=QuotationStatus.PENDING)
     notes      = models.TextField(blank=True, help_text='Internal notes — not visible to the client.')
     created_at = models.DateTimeField(auto_now_add=True)
@@ -33,5 +47,10 @@ class Quotation(models.Model):
         verbose_name        = 'Quotation'
         verbose_name_plural = 'Quotations'
 
+    def save(self, *args, **kwargs):
+        if not self.reference:
+            self.reference = _generate_reference()
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return f"#{self.pk} · {self.company} ({self.country}) — {self.product}"
+        return f"{self.reference} · {self.company} ({self.country}) — {self.product}"

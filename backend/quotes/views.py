@@ -60,7 +60,7 @@ def submit_quote(request):
 # ── Email helpers ──────────────────────────────────────────────────────────────
 
 def _send_admin_email(q: Quotation):
-    subject = f"[CABANA FISH] New quotation #{q.pk} — {q.company} · {q.country}"
+    subject = f"[CABANA FISH] New quotation {q.reference} — {q.company} · {q.country}"
     body = f"""\
 New quotation request received on cabanafish.com
 
@@ -86,7 +86,7 @@ ADDITIONAL DETAILS
 {q.message or '(none)'}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Reference : #{q.pk}
+Reference : {q.reference}
 Received  : {q.created_at.strftime('%Y-%m-%d %H:%M UTC')}
 """.strip()
 
@@ -103,7 +103,7 @@ Thank you for contacting CABANA FISH.
 We have received your quotation request for {q.product} and our export team
 will review it and get back to you within one business day.
 
-Your request reference is #{q.pk}. Please quote this number in any follow-up.
+Your request reference is {q.reference}. Please quote this number in any follow-up.
 
 If you have urgent questions, please write to {settings.ADMIN_EMAIL}.
 
