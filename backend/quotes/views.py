@@ -27,33 +27,34 @@ def health_check(request):
 @csrf_exempt
 @require_POST
 def submit_quote(request):
-    data = request.POST
+    try:
+        data = request.POST
 
-    # Validate required fields
-    missing = [f for f in REQUIRED_FIELDS if not data.get(f, '').strip()]
-    if missing:
-        return JsonResponse({'ok': False, 'missing': missing}, status=400)
+        missing = [f for f in REQUIRED_FIELDS if not data.get(f, '').strip()]
+        if missing:
+            return JsonResponse({'ok': False, 'missing': missing}, status=400)
 
-    # Persist to database
-    quotation = Quotation.objects.create(
-        name     = data['name'].strip(),
-        email    = data['email'].strip(),
-        company  = data['company'].strip(),
-        country  = data['country'].strip(),
-        product  = data['product'].strip(),
-        format   = data.get('format', '').strip(),
-        quantity = data.get('quantity', '').strip(),
-        port     = data.get('port', '').strip(),
-        message  = data.get('message', '').strip(),
-    )
+        quotation = Quotation.objects.create(
+            name     = data['name'].strip(),
+            email    = data['email'].strip(),
+            company  = data['company'].strip(),
+            country  = data['country'].strip(),
+            product  = data['product'].strip(),
+            format   = data.get('format', '').strip(),
+            quantity = data.get('quantity', '').strip(),
+            port     = data.get('port', '').strip(),
+            message  = data.get('message', '').strip(),
+        )
 
-    # Send admin notification email
-    _send_admin_email(quotation)
+        _send_admin_email(quotation)
+        _send_client_email(quotation)
 
-    # Send confirmation to the client
-    _send_client_email(quotation)
+        return JsonResponse({'ok': True, 'id': quotation.pk})
 
-    return JsonResponse({'ok': True, 'id': quotation.pk})
+    except Exception as exc:
+        import traceback
+        logger.error("submit_quote error: %s", traceback.format_exc())
+        return JsonResponse({'ok': False, 'error': str(exc), 'trace': traceback.format_exc()}, status=500)
 
 
 # ── Email helpers ──────────────────────────────────────────────────────────────
