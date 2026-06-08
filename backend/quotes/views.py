@@ -23,30 +23,6 @@ def health_check(request):
     return JsonResponse({'status': 'ok', 'db': db_status})
 
 
-@csrf_exempt
-def test_email(request):
-    import smtplib, ssl as _ssl
-    cfg = {
-        'host':     settings.EMAIL_HOST,
-        'port':     settings.EMAIL_PORT,
-        'user':     settings.EMAIL_HOST_USER,
-        'use_ssl':  settings.EMAIL_USE_SSL,
-        'use_tls':  settings.EMAIL_USE_TLS,
-        'from':     settings.DEFAULT_FROM_EMAIL,
-        'to':       settings.ADMIN_EMAIL,
-    }
-    try:
-        send_mail(
-            subject        = '[CABANA FISH] SMTP test',
-            message        = 'SMTP connection works.',
-            from_email     = settings.DEFAULT_FROM_EMAIL,
-            recipient_list = [settings.ADMIN_EMAIL],
-            fail_silently  = False,
-        )
-        return JsonResponse({'ok': True, 'config': cfg})
-    except Exception as exc:
-        return JsonResponse({'ok': False, 'error': str(exc), 'config': cfg}, status=500)
-
 
 @csrf_exempt
 @require_POST
