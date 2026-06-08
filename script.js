@@ -76,15 +76,17 @@ if (quoteForm) {
         method: 'POST',
         body:   new FormData(quoteForm),
       });
+      const json = await res.json().catch(() => ({}));
       if (res.ok) {
         note.textContent = '✓ Request received — we will respond within one business day.';
         note.classList.add('success');
         quoteForm.reset();
       } else {
-        throw new Error('server');
+        note.textContent = 'Error: ' + (json.error || json.missing || res.status);
+        note.classList.add('error');
       }
-    } catch {
-      note.textContent = 'Could not send — please email contact@cabanafish.com directly.';
+    } catch (err) {
+      note.textContent = 'Network error: ' + err.message;
       note.classList.add('error');
     } finally {
       btn.disabled = false;
