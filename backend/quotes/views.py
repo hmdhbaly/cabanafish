@@ -3,7 +3,6 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_POST
 
 from .models import Quotation
 
@@ -23,10 +22,10 @@ def health_check(request):
     return JsonResponse({'status': 'ok', 'db': db_status})
 
 
-
 @csrf_exempt
-@require_POST
 def submit_quote(request):
+    if request.method != 'POST':
+        return JsonResponse({'ok': False, 'error': f'Method {request.method} not allowed'}, status=405)
     try:
         data = request.POST
 
