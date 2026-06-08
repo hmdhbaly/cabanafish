@@ -36,7 +36,7 @@ class Quotation(models.Model):
     message  = models.TextField(blank=True)
 
     # ── Management ────────────────────────────────────────────────────────
-    reference  = models.CharField(max_length=6, unique=True, blank=True)
+    reference  = models.CharField(max_length=6, unique=True, blank=True, null=True)
     status     = models.CharField(max_length=20, choices=QuotationStatus.choices, default=QuotationStatus.PENDING)
     notes      = models.TextField(blank=True, help_text='Internal notes — not visible to the client.')
     created_at = models.DateTimeField(auto_now_add=True)
