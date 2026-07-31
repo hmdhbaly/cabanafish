@@ -9,12 +9,19 @@ admin.site.index_title  = 'Orders & Quotations'
 
 FRONTEND_DIR = settings.BASE_DIR.parent  # CabanaFish root folder
 
+def serve_frontend(request, path='index.html'):
+    response = serve(request, path, document_root=FRONTEND_DIR)
+    response['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response['Pragma'] = 'no-cache'
+    response['Expires'] = '0'
+    return response
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('quotes.urls')),
 
     # Serve the frontend (index.html at /, all other files by path)
     # Negative lookahead excludes admin/ and api/ so Django handles them first
-    re_path(r'^$',                                      serve, {'document_root': FRONTEND_DIR, 'path': 'index.html'}),
-    re_path(r'^(?P<path>(?!admin|api).+)$',             serve, {'document_root': FRONTEND_DIR}),
+    re_path(r'^$',                                      serve_frontend),
+    re_path(r'^(?P<path>(?!admin|api).+)$',             serve_frontend),
 ]
