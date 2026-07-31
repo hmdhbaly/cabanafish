@@ -152,8 +152,21 @@ document.querySelectorAll('.gallery-item').forEach(item => {
 
 function openLightbox(item) {
   if (!lightbox) return;
-  lightboxImg.src              = item.querySelector('img').src;
-  lightboxCaption.textContent  = item.querySelector('figcaption')?.textContent || '';
+  const img = item.querySelector('img');
+  const placeholder = item.querySelector('.gallery-placeholder');
+  const bg = placeholder ? getComputedStyle(placeholder).backgroundImage : '';
+  const bgMatch = bg.match(/url\(["']?(.*?)["']?\)/);
+  if (img) {
+    lightboxImg.src = img.src;
+    lightboxImg.style.display = '';
+  } else if (bgMatch) {
+    lightboxImg.src = bgMatch[1];
+    lightboxImg.style.display = '';
+  } else {
+    lightboxImg.removeAttribute('src');
+    lightboxImg.style.display = 'none';
+  }
+  lightboxCaption.textContent  = item.querySelector('figcaption')?.textContent || placeholder?.dataset.photo || '';
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -174,3 +187,25 @@ window.addEventListener('scroll', () => {
   backToTop?.classList.toggle('visible', window.scrollY > 600);
 }, { passive: true });
 backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Product detail pages: show required image slots instead of misleading stock photos.
+const productDetail = document.querySelector('.product-detail');
+if (productDetail) {
+  const productName = productDetail.querySelector('h1')?.textContent?.trim() || 'Product';
+  const detailGrid = productDetail.querySelector('.detail-grid');
+  const requiredGallery = document.createElement('section');
+  requiredGallery.className = 'detail-required-gallery';
+  [
+    `${productName} · main product photo`,
+    `${productName} · 3-6 gallery photos`,
+    `${productName} · packaging / export cartons`,
+    `${productName} · close-up quality inspection`,
+    `${productName} · processing or cold-storage condition`,
+  ].forEach(label => {
+    const card = document.createElement('article');
+    card.className = 'detail-gallery-card';
+    card.dataset.photo = label;
+    requiredGallery.appendChild(card);
+  });
+  detailGrid?.after(requiredGallery);
+}

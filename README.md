@@ -33,6 +33,35 @@ Premium B2B seafood export website for CABANA FISH, a Mauritanian supplier servi
 - Mongo
 - Tako
 
+## Product Image Accuracy Policy
+
+Product photography must be species-specific and verifiable before publication. Do not use generic seafood collages, AI-generated seafood scenes, restaurant images, decorative ocean photos, or duplicated mixed-product images as product evidence.
+
+Current status: the website uses generated product visuals for catalog cards, product pages, and gallery previews. These are useful for layout and presentation, but they should still be replaced with verified real photographs before serious buyer due diligence or final commercial launch.
+
+Required image set for each product:
+
+- Main product photograph
+- 3-6 gallery photographs
+- Packaging or export carton photograph
+- Close-up quality photograph
+- Processing, cold-storage, IQF, block-frozen, or loading photograph when available
+
+Accepted sources:
+
+- CABANA FISH own operation photos
+- Approved supplier photos with permission
+- Verified exact-species commercial seafood photographs
+
+Rejected sources:
+
+- Generic fish photos
+- Wrong species
+- Mixed seafood images used for a single product
+- AI-looking images
+- Restaurant, cooked, plated, garnished, or decorative images
+- Watermarked or low-resolution files
+
 ## Contact
 
 Sales email: [contact@cabanafish.com](mailto:contact@cabanafish.com)

@@ -262,3 +262,46 @@ body.loaded .hero-proof{animation:proofIn .9s .75s both}
 .detail-grid dd{margin:5px 0 0;color:#25394c;font-size:12px;line-height:1.6}
 @media(max-width:900px){.cred-grid,.timeline,.export-grid,.detail-hero,.detail-grid{grid-template-columns:1fr 1fr}.contact-info-grid{grid-template-columns:1fr 1fr}.detail-hero{gap:24px}.detail-hero img{height:340px}.map-placeholder{align-items:flex-start;flex-direction:column}}
 @media(max-width:600px){.cred-grid,.timeline,.export-grid,.values-panel,.detail-hero,.detail-grid,.contact-info-grid{grid-template-columns:1fr}.timeline article,.values-panel div{border-right:0;border-bottom:1px solid var(--line)}.detail-header{padding:0 18px}.detail-header nav{gap:12px;font-size:8px}.detail-header img{width:135px}.product-detail{padding:28px 20px 60px}.detail-hero{padding:24px}.detail-hero img{height:260px}.contact-info-grid,.map-placeholder{margin-left:20px;margin-right:20px}.contact-hero{padding:90px 20px 70px}}
+
+/* Species-accuracy safeguard: no unverified product photography is displayed. */
+.hero-bg,.quote-intro-bg,.contact-hero,.contact-copy{background-image:linear-gradient(135deg,rgba(6,27,48,.96),rgba(6,27,48,.78))!important}
+.quality-image{background-image:linear-gradient(135deg,rgba(6,27,48,.92),rgba(37,159,162,.5))!important}
+.octopus,.squid,.cuttlefish,.bream,.grouper,.tuna,.poulpe,.calamar,.choco,.thierny,.bengoua,.roubio,.mongo,.tako{background-image:none!important}
+.product-photo-required,.gallery-placeholder,.detail-photo-placeholder,.detail-gallery-card{display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#071d33,#0d3a5b)!important;color:#fff;position:relative;border:1px solid rgba(37,159,162,.34)}
+.product-photo-required:before,.gallery-placeholder:before,.detail-photo-placeholder:before,.detail-gallery-card:before{content:attr(data-photo);display:block;max-width:78%;font-family:"Playfair Display",serif;font-size:22px;line-height:1.25}
+.product-photo-required:after,.gallery-placeholder:after,.detail-photo-placeholder:after,.detail-gallery-card:after{content:"REAL PRODUCT PHOTOGRAPH REQUIRED";position:absolute;left:16px;right:16px;bottom:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.18);font-size:8px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.62)}
+.product-photo-required .availability{background:#fff;color:var(--navy)}
+.gallery:not(.verification-gallery){display:none}
+.image-verification{background:var(--cream)}
+.verification-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.verification-card{background:#fff;border:1px solid var(--line);padding:28px;min-height:220px}
+.verification-card span{display:inline-block;margin-bottom:18px;color:var(--teal);font-size:8px;text-transform:uppercase;letter-spacing:1.3px}
+.verification-card h3{font-family:"Playfair Display",serif;font-size:25px;margin:0 0 12px}
+.verification-card p{font-size:11px;line-height:1.8;color:#667785}
+.detail-hero img{display:none}
+.detail-photo-placeholder{height:460px;padding:30px}
+.gallery-placeholder{width:100%;height:100%}
+.detail-required-gallery{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.detail-gallery-card{height:190px;padding:22px}
+.detail-gallery-card:before{font-size:18px}
+@media(max-width:900px){.verification-grid,.detail-required-gallery{grid-template-columns:1fr 1fr}.detail-photo-placeholder{height:340px}}
+@media(max-width:600px){.verification-grid,.detail-required-gallery{grid-template-columns:1fr}.detail-photo-placeholder{height:260px}}
+
+/* Product visuals mapped by exact product page/card. */
+.product-photo-required.poulpe,.gallery-placeholder[data-photo^="Poulpe"],.detail-photo-placeholder[data-photo*="Octopus"]{background-image:url("assets/products/octopus-main.png")!important;background-size:cover!important;background-position:center!important}
+.product-photo-required.calamar,.gallery-placeholder[data-photo^="Calamar"],.detail-photo-placeholder[data-photo*="Loligo"]{background-image:url("assets/products/calamar-main.png")!important;background-size:cover!important;background-position:center!important}
+.product-photo-required.choco,.gallery-placeholder[data-photo^="Choco"],.detail-photo-placeholder[data-photo*="Sepia"]{background-image:url("assets/products/choco-main.png")!important;background-size:cover!important;background-position:center!important}
+.product-photo-required.thierny,.gallery-placeholder[data-photo^="Thierny"],.detail-photo-placeholder[data-photo*="Dentex"]{background-image:url("assets/products/thierny-main.png")!important;background-size:cover!important;background-position:center!important}
+.product-photo-required.bengoua,.gallery-placeholder[data-photo^="Bengoua"],.detail-photo-placeholder[data-photo*="Epinephelus"]{background-image:url("assets/products/bengoua-main.png")!important;background-size:cover!important;background-position:center!important}
+.product-photo-required.roubio,.gallery-placeholder[data-photo^="Roubio"],.detail-photo-placeholder[data-photo*="Pseudupeneus"]{background-image:url("assets/products/roubio-main.png")!important;background-size:cover!important;background-position:center!important}
+.product-photo-required.mongo,.gallery-placeholder[data-photo^="Mongo"],.detail-photo-placeholder[data-photo*="Arius"]{background-image:url("assets/products/mongo-main.png")!important;background-size:cover!important;background-position:center!important}
+.product-photo-required.tako,.gallery-placeholder[data-photo^="Tako"],.detail-photo-placeholder[data-photo*="Scomber"]{background-image:url("assets/products/tako-main.png")!important;background-size:cover!important;background-position:center!important}
+.product-photo-required.poulpe:before,.product-photo-required.calamar:before,.product-photo-required.choco:before,.product-photo-required.thierny:before,.product-photo-required.bengoua:before,.product-photo-required.roubio:before,.product-photo-required.mongo:before,.product-photo-required.tako:before,
+.product-photo-required.poulpe:after,.product-photo-required.calamar:after,.product-photo-required.choco:after,.product-photo-required.thierny:after,.product-photo-required.bengoua:after,.product-photo-required.roubio:after,.product-photo-required.mongo:after,.product-photo-required.tako:after,
+.gallery-placeholder[data-photo^="Poulpe"]:before,.gallery-placeholder[data-photo^="Calamar"]:before,.gallery-placeholder[data-photo^="Choco"]:before,.gallery-placeholder[data-photo^="Thierny"]:before,.gallery-placeholder[data-photo^="Bengoua"]:before,.gallery-placeholder[data-photo^="Roubio"]:before,.gallery-placeholder[data-photo^="Mongo"]:before,.gallery-placeholder[data-photo^="Tako"]:before,
+.gallery-placeholder[data-photo^="Poulpe"]:after,.gallery-placeholder[data-photo^="Calamar"]:after,.gallery-placeholder[data-photo^="Choco"]:after,.gallery-placeholder[data-photo^="Thierny"]:after,.gallery-placeholder[data-photo^="Bengoua"]:after,.gallery-placeholder[data-photo^="Roubio"]:after,.gallery-placeholder[data-photo^="Mongo"]:after,.gallery-placeholder[data-photo^="Tako"]:after,
+.detail-photo-placeholder[data-photo*="Octopus"]:before,.detail-photo-placeholder[data-photo*="Loligo"]:before,.detail-photo-placeholder[data-photo*="Sepia"]:before,.detail-photo-placeholder[data-photo*="Dentex"]:before,.detail-photo-placeholder[data-photo*="Epinephelus"]:before,.detail-photo-placeholder[data-photo*="Pseudupeneus"]:before,.detail-photo-placeholder[data-photo*="Arius"]:before,.detail-photo-placeholder[data-photo*="Scomber"]:before,
+.detail-photo-placeholder[data-photo*="Octopus"]:after,.detail-photo-placeholder[data-photo*="Loligo"]:after,.detail-photo-placeholder[data-photo*="Sepia"]:after,.detail-photo-placeholder[data-photo*="Dentex"]:after,.detail-photo-placeholder[data-photo*="Epinephelus"]:after,.detail-photo-placeholder[data-photo*="Pseudupeneus"]:after,.detail-photo-placeholder[data-photo*="Arius"]:after,.detail-photo-placeholder[data-photo*="Scomber"]:after{display:none}
+
+/* Quality section: text left, ocean boats image right. */
+.quality-image{background-image:linear-gradient(0deg,rgba(6,27,48,.14),rgba(6,27,48,.04)),url("assets/ocean-boats-quality.png")!important;background-position:center!important;background-size:cover!important}
