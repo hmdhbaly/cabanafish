@@ -269,7 +269,7 @@ body.loaded .hero-proof{animation:proofIn .9s .75s both}
 .octopus,.squid,.cuttlefish,.bream,.grouper,.tuna,.poulpe,.calamar,.choco,.thierny,.bengoua,.roubio,.mongo,.tako{background-image:none!important}
 .product-photo-required,.gallery-placeholder,.detail-photo-placeholder,.detail-gallery-card{display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,#071d33,#0d3a5b)!important;color:#fff;position:relative;border:1px solid rgba(37,159,162,.34)}
 .product-photo-required:before,.gallery-placeholder:before,.detail-photo-placeholder:before,.detail-gallery-card:before{content:attr(data-photo);display:block;max-width:78%;font-family:"Playfair Display",serif;font-size:22px;line-height:1.25}
-.product-photo-required:after,.gallery-placeholder:after,.detail-photo-placeholder:after,.detail-gallery-card:after{content:"REAL PRODUCT PHOTOGRAPH REQUIRED";position:absolute;left:16px;right:16px;bottom:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.18);font-size:8px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.62)}
+.product-photo-required:after,.gallery-placeholder:after,.detail-photo-placeholder:after,.detail-gallery-card:after{content:"";position:absolute;left:16px;right:16px;bottom:16px;padding-top:12px;border-top:0;font-size:8px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.62)}
 .product-photo-required .availability{background:#fff;color:var(--navy)}
 .gallery:not(.verification-gallery){display:none}
 .image-verification{background:var(--cream)}
@@ -314,3 +314,9 @@ html,body{max-width:100%;overflow-x:hidden}
 .hero-content{max-width:min(1120px,90vw)!important}
 .hero-content h1{font-size:clamp(54px,6.2vw,92px)!important;letter-spacing:-3.2px!important}
 @media(min-width:1100px){.hero-content h1 em{white-space:nowrap}}
+
+/* Remove provisional photo labels now that generated visuals are assigned. */
+.product-photo-required:after,.gallery-placeholder:after,.detail-photo-placeholder:after,.detail-gallery-card:after{content:none!important}
+.quality-badge{align-items:center!important;justify-content:center!important;text-align:center!important;padding:0 18px!important}
+.quality-badge strong,.quality-badge span{display:block!important;width:100%!important;text-align:center!important}
+.quality-badge span{line-height:1.35!important;letter-spacing:.9px!important}
