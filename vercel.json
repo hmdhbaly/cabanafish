@@ -9,8 +9,13 @@
         "includeFiles": [
           "backend/**",
           "assets/**",
+          "products/**",
           "index.html",
           "quote.html",
+          "contact.html",
+          "robots.txt",
+          "sitemap.xml",
+          "README.md",
           "styles.css",
           "script.js"
         ]

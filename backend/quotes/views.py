@@ -33,6 +33,14 @@ def submit_quote(request):
         if missing:
             return JsonResponse({'ok': False, 'missing': missing}, status=400)
 
+        extra_details = []
+        if data.get('packaging', '').strip():
+            extra_details.append(f"Packaging preference: {data.get('packaging', '').strip()}")
+        if data.get('documentation', '').strip():
+            extra_details.append(f"Required documentation: {data.get('documentation', '').strip()}")
+        if data.get('message', '').strip():
+            extra_details.append(data.get('message', '').strip())
+
         quotation = Quotation.objects.create(
             name     = data['name'].strip(),
             email    = data['email'].strip(),
@@ -42,7 +50,7 @@ def submit_quote(request):
             format   = data.get('format', '').strip(),
             quantity = data.get('quantity', '').strip(),
             port     = data.get('port', '').strip(),
-            message  = data.get('message', '').strip(),
+            message  = "\n\n".join(extra_details),
         )
 
         _send_admin_email(quotation)

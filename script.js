@@ -40,13 +40,6 @@ tabs.forEach(tab => {
 });
 
 // ─── Product → quote with pre-selection ──────────────────────────────────────
-document.querySelectorAll('.product-link').forEach(button => {
-  button.addEventListener('click', () => {
-    const product = button.closest('.product-card')?.querySelector('h3')?.textContent || '';
-    window.location.href = `quote.html?product=${encodeURIComponent(product)}`;
-  });
-});
-
 // ─── Quote form: pre-select product from URL param ────────────────────────────
 const productSelect = document.querySelector('select[name="product"]');
 if (productSelect) {
