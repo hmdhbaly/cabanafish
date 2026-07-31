@@ -314,3 +314,4 @@ html,body{max-width:100%;overflow-x:hidden}
 .quality-badge{align-items:center!important;justify-content:center!important;text-align:center!important;padding:0 18px!important}
 .quality-badge strong,.quality-badge span{display:block!important;width:100%!important;text-align:center!important}
 .quality-badge span{line-height:1.35!important;letter-spacing:.9px!important}
+.quality-image .quality-badge{left:50%!important;right:auto!important;top:50%!important;bottom:auto!important;transform:translate(-50%,-50%)!important}
