@@ -26,10 +26,7 @@ Premium B2B seafood export website for CABANA FISH, a Mauritanian supplier servi
 
 - Poulpe / Octopus
 - Calamar
-- Choco
 - Thierny
-- Bengoua
-- Roubio
 - Mongo
 - Tako
 
@@ -83,10 +80,7 @@ CabanaFish/
 |-- products/
 |   |-- poulpe-octopus.html
 |   |-- calamar.html
-|   |-- choco.html
 |   |-- thierny.html
-|   |-- bengoua.html
-|   |-- roubio.html
 |   |-- mongo.html
 |   `-- tako.html
 |-- backend/
